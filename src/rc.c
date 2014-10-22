@@ -24,7 +24,7 @@ unsigned int rc_lowpass(double items[], unsigned int r, double c) {
 
 	for (unsigned int f = 1; f < STEPS; f++) {
 		double r2 = (1 / (2 * M_PI * f * uc));
-		double db = 20 * log10(r2 / (r + r2));
+		double db = 10 * log10(r2 / (r + r2));
 
 		// TODO: Stop when it reaches -60dB?
 		items[f] = db;
@@ -60,7 +60,7 @@ unsigned int rc_highpass(double items[], unsigned int r, double c) {
 
 	for (unsigned int f = 1; f < STEPS; f++) {
 		double r2 = (1 / (2 * M_PI * f * uc));
-		double db = 20 * log10(r / (r2 + r));
+		double db = 10 * log10(r / (r2 + r));
 
 		// TODO: Stop when it reaches -60dB?
 		items[f] = db;
